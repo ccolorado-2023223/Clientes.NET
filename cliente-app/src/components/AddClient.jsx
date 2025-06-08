@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 export const AddClient = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -12,68 +12,68 @@ export const AddClient = () => {
     direccion: '',
     correo: '',
     descripcion: ''
-  });
+  })
 
   const handleChange = e => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
   };
 
   const validateForm = async () => {
   const { nombres, apellidos, celular, direccion, correo, descripcion } = formData;
 
   if (!nombres || !apellidos || !celular || !direccion || !correo || !descripcion) {
-    alert("Todos los campos son obligatorios");
-    return false;
+    alert("Todos los campos son obligatorios")
+    return false
   }
 
   if (!/^\d{8,12}$/.test(celular)) {
-    alert("El celular debe tener entre 8 y 12 dígitos numéricos");
+    alert("El celular debe tener entre 8 y 12 dígitos numéricos")
     return false;
   }
 
   if (descripcion.length > 25) {
-    alert("La descripción no debe tener más de 25 caracteres");
-    return false;
+    alert("La descripción no debe tener más de 25 caracteres")
+    return false
   }
 
   try {
-    const res = await axios.get('http://localhost:5298/api/cliente');
-    const existing = res.data;
+    const res = await axios.get('http://localhost:5298/api/cliente')
+    const existing = res.data
 
     const emailExists = existing.some(c => c.correo === correo && c.id !== formData.id);
     const phoneExists = existing.some(c => c.celular === celular && c.id !== formData.id);
 
     if (emailExists) {
-      alert("Ya existe un cliente con este correo");
-      return false;
+      alert("Ya existe un cliente con este correo")
+      return false
     }
 
     if (phoneExists) {
-      alert("Ya existe un cliente con este número de celular");
-      return false;
+      alert("Ya existe un cliente con este número de celular")
+      return false
     }
   } catch (err) {
-    console.error("Error validando duplicados", err);
+    console.error("Error validando duplicados", err)
     return false;
   }
 
-  return true;
-};
+  return true
+}
 
 
   const handleSubmit = async (e) => {
   e.preventDefault();
-  const isValid = await validateForm();
-  if (!isValid) return;
+  const isValid = await validateForm()
+  if (!isValid) return
 
   try {
-    await axios.post('http://localhost:5298/api/cliente', formData);
+    await axios.post('http://localhost:5298/api/cliente', formData)
     navigate('/');
   } catch (err) {
-    alert('Error al guardar');
+    alert('Error al guardar')
   }
-};
+}
 
   return (
     <FormContainer>
@@ -100,7 +100,7 @@ const FormContainer = styled.div`
   padding: 1rem;
   background-color: #f8f9fa;
   box-sizing: border-box;
-`;
+`
 
 const Form = styled.form`
   background: white;
@@ -113,7 +113,7 @@ const Form = styled.form`
   @media (max-width: 500px) {
     padding: 1.2rem;
   }
-`;
+`
 
 const Input = styled.input`
   width: 100%;
@@ -123,7 +123,7 @@ const Input = styled.input`
   border-radius: 0.5rem;
   border: 1px solid #ccc;
   box-sizing: border-box;
-`;
+`
 
 const TextArea = styled.textarea`
   width: 100%;
@@ -134,7 +134,7 @@ const TextArea = styled.textarea`
   border: 1px solid #ccc;
   resize: vertical;
   box-sizing: border-box;
-`;
+`
 
 const SubmitButton = styled.button`
   width: 100%;
@@ -150,4 +150,4 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #218838;
   }
-`;
+`
