@@ -107,7 +107,7 @@ const FormContainer = styled.div`
   padding: 1rem;
   background-color: #f8f9fa;
   box-sizing: border-box;
-`;
+`
 
 const Form = styled.form`
   background: white;
@@ -120,7 +120,7 @@ const Form = styled.form`
   @media (max-width: 500px) {
     padding: 1.2rem;
   }
-`;
+`
 
 const Input = styled.input`
   width: 100%;
@@ -130,7 +130,7 @@ const Input = styled.input`
   border-radius: 0.5rem;
   border: 1px solid #ccc;
   box-sizing: border-box;
-`;
+`
 
 const TextArea = styled.textarea`
   width: 100%;
@@ -141,7 +141,7 @@ const TextArea = styled.textarea`
   border: 1px solid #ccc;
   resize: vertical;
   box-sizing: border-box;
-`;
+`
 
 const SubmitButton = styled.button`
   width: 100%;
@@ -157,4 +157,4 @@ const SubmitButton = styled.button`
   &:hover {
     background-color: #218838;
   }
-`;
+`

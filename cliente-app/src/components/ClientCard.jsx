@@ -1,6 +1,6 @@
 // ClientCard.jsx
 import React from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ClientCard = ({ cliente, onEdit, onDelete }) => {
   return (
@@ -15,8 +15,8 @@ export const ClientCard = ({ cliente, onEdit, onDelete }) => {
         <ButtonDelete onClick={() => onDelete(cliente.id)}>Eliminar</ButtonDelete>
       </ButtonGroup>
     </Card>
-  );
-};
+  )
+}
 
 const Card = styled.div`
   background: #fff;
@@ -27,23 +27,23 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-`;
+`
 
 const Title = styled.h2`
   margin: 0;
   font-size: 1.2rem;
-`;
+`
 
 const Detail = styled.p`
   margin: 0;
   font-size: 0.95rem;
-`;
+`
 
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
-`;
+`
 
 const ButtonEdit = styled.button`
   background-color: #007bff;
@@ -52,7 +52,7 @@ const ButtonEdit = styled.button`
   color: white;
   border-radius: 0.4rem;
   cursor: pointer;
-`;
+`
 
 const ButtonDelete = styled.button`
   background-color: #dc3545;
@@ -61,4 +61,4 @@ const ButtonDelete = styled.button`
   color: white;
   border-radius: 0.4rem;
   cursor: pointer;
-`;
+`

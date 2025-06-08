@@ -268,3 +268,5 @@ C:\Users\Hp\Desktop\Clientes.NET\ClientesAPI\obj\Debug\net8.0\refint\ClientesAPI
 C:\Users\Hp\Desktop\Clientes.NET\ClientesAPI\obj\Debug\net8.0\ClientesAPI.pdb
 C:\Users\Hp\Desktop\Clientes.NET\ClientesAPI\obj\Debug\net8.0\ClientesAPI.genruntimeconfig.cache
 C:\Users\Hp\Desktop\Clientes.NET\ClientesAPI\obj\Debug\net8.0\ref\ClientesAPI.dll
+C:\Users\Hp\Desktop\Clientes.NET\ClientesAPI\bin\Debug\net8.0\package-lock.json
+C:\Users\Hp\Desktop\Clientes.NET\ClientesAPI\obj\Debug\net8.0\ClientesAPI.sourcelink.json

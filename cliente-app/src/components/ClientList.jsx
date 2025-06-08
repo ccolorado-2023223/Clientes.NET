@@ -2,50 +2,47 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import { ClientCard } from './ClientCard'; // 👉 se comenta para evitar error si aún no está listo
+import { ClientCard } from './ClientCard';
 
 export const ListClients = () => {
   const [clientes, setClientes] = useState([]);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  // 👉 Obtener clientes desde la API
   const getClientes = async () => {
     try {
-      const res = await axios.get('http://localhost:5298/api/cliente');
-      console.log('Clientes recibidos:', res.data);
-      setClientes(res.data);
+      const res = await axios.get('http://localhost:5298/api/cliente')
+      console.log('Clientes recibidos:', res.data)
+      setClientes(res.data)
     } catch (error) {
-      console.error('Error al obtener clientes', error);
+      console.error('Error al obtener clientes', error)
     }
-  };
+  }
 
   useEffect(() => {
     getClientes();
-  }, []);
+  }, [])
 
-  // 👉 Navegar para crear cliente
   const abrirModalCrear = () => {
-    navigate('/crear');
-  };
+    navigate('/crear')
+  }
 
-  // 👉 Navegar para editar cliente
   const abrirModalEditar = (cliente) => {
-    navigate(`/editar/${cliente.id}`);
-  };
+    navigate(`/editar/${cliente.id}`)
+  }
 
   const handleDelete = async (id) => {
-  const confirmar = window.confirm('¿Estás seguro de eliminar este cliente?');
-  if (!confirmar) return;
+  const confirmar = window.confirm('¿Estás seguro de eliminar este cliente?')
+  if (!confirmar) return
 
   try {
-    await axios.delete(`http://localhost:5298/api/cliente/${id}`);
-    getClientes(); // refrescar lista
+    await axios.delete(`http://localhost:5298/api/cliente/${id}`)
+    getClientes()
   } catch (error) {
-    alert('Error al eliminar el cliente');
-    console.error(error);
+    alert('Error al eliminar el cliente')
+    console.error(error)
   }
-};
+}
 
   return (
     <Container>
@@ -63,8 +60,8 @@ export const ListClients = () => {
       ))}
     </CardGrid>
   </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   min-height: 100vh;
@@ -74,13 +71,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   background-color: #f0f2f5;
-`;
+`
 
 const Title = styled.h1`
   text-align: center;
   margin-bottom: 1rem;
   font-size: 2rem;
-`;
+`
 
 const Button = styled.button`
   align-self: center;
@@ -97,7 +94,7 @@ const Button = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-`;
+`
 
 const CardGrid = styled.div`
   display: grid;
@@ -105,4 +102,4 @@ const CardGrid = styled.div`
   gap: 1.5rem;
   width: 100%;
   flex: 1;
-`;
+`
