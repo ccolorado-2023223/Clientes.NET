@@ -16,7 +16,7 @@ builder.Services.AddCors(options =>
                           "https://clientes-front.onrender.com")
                         .AllowAnyHeader()
                         .AllowAnyMethod());
-})
+});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
