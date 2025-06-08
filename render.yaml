@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: clientes-api
+    env: docker
+    region: oregon
+    rootDir: ClientesAPI
+    plan: free
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        value: "Host=dpg-d12gcc95pdvs73cnbdj0-a.oregon-postgres.render.com;Database=clientes_db_0z2e;Username=clientes_db_0z2e_user;Password=HEqkrjzyNAMnJA4xPjMB3UGySxYS1XQu"
