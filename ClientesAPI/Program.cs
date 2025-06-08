@@ -29,12 +29,17 @@ app.UseSwaggerUI();
 
 app.UseCors("AllowFrontend");
 
-// 🔧 Añade esto:
 app.UseRouting();
 
 app.UseAuthorization();
 
-// 🔧 Esto debe ir después de UseRouting
 app.MapControllers();
+
+// Crear base de datos automáticamente al iniciar (si no existe)
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DBContext>();
+    dbContext.Database.Migrate();
+}
 
 app.Run();
