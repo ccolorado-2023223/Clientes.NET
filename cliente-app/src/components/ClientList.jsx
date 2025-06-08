@@ -11,7 +11,7 @@ export const ListClients = () => {
 
   const getClientes = async () => {
     try {
-      const res = await axios.get('http://localhost:5298/api/cliente')
+      const res = await axios.get('https://cliente-api-t9km.onrender.com/api/cliente')
       console.log('Clientes recibidos:', res.data)
       setClientes(res.data)
     } catch (error) {
@@ -20,7 +20,7 @@ export const ListClients = () => {
   }
 
   useEffect(() => {
-    getClientes();
+    getClientes()
   }, [])
 
   const abrirModalCrear = () => {
@@ -36,7 +36,7 @@ export const ListClients = () => {
   if (!confirmar) return
 
   try {
-    await axios.delete(`http://localhost:5298/api/cliente/${id}`)
+    await axios.delete(`https://cliente-api-t9km.onrender.com/api/cliente/${id}`)
     getClientes()
   } catch (error) {
     alert('Error al eliminar el cliente')

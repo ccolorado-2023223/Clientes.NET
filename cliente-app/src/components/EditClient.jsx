@@ -6,7 +6,7 @@ import axios from 'axios';
 export const EditClient = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [clientes, setClientes] = useState([]);
+  const [clientes, setClientes] = useState([])
   const [formData, setFormData] = useState({
     nombres: '',
     apellidos: '',
@@ -14,16 +14,16 @@ export const EditClient = () => {
     direccion: '',
     correo: '',
     descripcion: ''
-  });
+  })
 
   useEffect(() => {
     const fetchCliente = async () => {
-      const res = await axios.get(`http://localhost:5298/api/cliente/${id}`);
+      const res = await axios.get(`https://cliente-api-t9km.onrender.com/api/cliente/${id}`);
       setFormData(res.data);
     };
 
     const fetchAllClientes = async () => {
-      const res = await axios.get(`http://localhost:5298/api/cliente`);
+      const res = await axios.get(`https://cliente-api-t9km.onrender.com/api/cliente`);
       setClientes(res.data);
     };
 
@@ -75,7 +75,7 @@ export const EditClient = () => {
     if (!validate()) return;
 
     try {
-      await axios.put(`http://localhost:5298/api/cliente/${id}`, formData);
+      await axios.put(`https://cliente-api-t9km.onrender.com/api/cliente/${id}`, formData);
       navigate('/');
     } catch (error) {
       alert('Error al actualizar el cliente');

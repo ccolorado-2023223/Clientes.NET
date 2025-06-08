@@ -38,7 +38,7 @@ export const AddClient = () => {
   }
 
   try {
-    const res = await axios.get('http://localhost:5298/api/cliente')
+    const res = await axios.get('https://cliente-api-t9km.onrender.com/api/cliente')
     const existing = res.data
 
     const emailExists = existing.some(c => c.correo === correo && c.id !== formData.id);
@@ -68,7 +68,7 @@ export const AddClient = () => {
   if (!isValid) return
 
   try {
-    await axios.post('http://localhost:5298/api/cliente', formData)
+    await axios.post('https://cliente-api-t9km.onrender.com/api/cliente', formData)
     navigate('/');
   } catch (err) {
     alert('Error al guardar')
