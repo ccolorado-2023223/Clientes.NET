@@ -35,7 +35,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Crear base de datos automáticamente al iniciar (si no existe)
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<DBContext>();
